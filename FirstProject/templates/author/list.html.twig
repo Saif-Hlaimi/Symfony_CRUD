@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des auteurs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor : pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .summary {
+            text-align: center;
+            margin: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des auteurs</h1>
+    <div class="container">
+        {% if authors|length > 0 %}
+            <div class="summary">
+                <p>Bonjour, MR. Nombre d'auteurs : {{ authors|length }}</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Nombre de livres</th>
+                        <th>Détails</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set totalBooks = 0 %}
+                    {% for author in authors %}
+                        <tr>
+                            <td>{{ author.id }}</td>
+                            <td><img src="{{ author.picture }}" alt="{{ author.username }}" width="100"></td>
+                            <td>{{ author.username|upper }}</td>
+                            <td>{{ author.email }}</td>
+                            <td>{{ author.nb_books }}</td>
+                            <td><a href="https://classroom.google.com/c/NjIyMzA0ODYxOTE1/m/NjI1NTU2Nzk3OTkw/details">Détails</a></td>
+                        </tr>
+                        {% set totalBooks = totalBooks + author.nb_books %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="summary">
+                <p>Nombre total de livres de tous les auteurs : {{ totalBooks }}</p>
+            </div>
+        {% else %}
+            <p class="summary">Aucun auteur n'est disponible pour l'instant.</p>
+        {% endif %}
+    </div>
+
+
+    
+
+
+
+</body>
+</html>

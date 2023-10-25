@@ -1,0 +1,19 @@
+{# templates/supprimer_gardiens.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Supprimer les Gardiens</h1>
+
+    {% if joueursSupprimes %}
+        <p>Les joueurs ayant le rôle 'gardien' ont été supprimés avec succès.</p>
+    {% else %}
+        <p>Cliquez sur le bouton ci-dessous pour supprimer les joueurs ayant le rôle 'gardien' :</p>
+        
+        <form method="post" action="{{ path('supprimer_gardiens') }}">
+            <button type="submit" class="btn btn-danger">Supprimer les gardiens</button>
+        </form>
+    {% endif %}
+    
+    <a href="{{ path('accueil') }}">Retour à l'accueil</a>
+{% endblock %}

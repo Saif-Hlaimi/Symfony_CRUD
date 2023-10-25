@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center text-primary">Liste des Auteurs</h1>
+        <table border = 3 class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Email</th>
+                       <th scope="col">delete</th>
+                        <th scope="col">edit</th>
+                    <!-- Ajoutez d'autres en-têtes de colonnes ici pour d'autres propriétés de l'auteur -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in affiche_donne %}
+                    <tr>
+                        <th scope="row">{{ author.id }}</th>
+                        <td>{{ author.Username }}</td>
+                         <td>{{ author.Email }}</td>
+                   <td>
+<a href="{{ path('delete', {'ide': author.Id}) }}" class="delete">delete</a></td>
+<td><a href="{{ path('edit', { 'ide': author.id }) }}">Edit</a></td>
+                        <!-- Ajoutez d'autres cellules ici pour d'autres propriétés de l'auteur -->
+                    </tr>
+                 
+                {% endfor %}
+                
+            </tbody>
+        </table>
+      <a href={{ path('addform')}}> ajouter authors </a>
+    </div>
+   
+{% endblock %}
+ 

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a Book{% endblock %}
+
+{% block body %}
+<div class="container mt-5" align='center'>
+    <h2 class="mb-5">add Book</h2>
+    
+    {{ form_start(f, {'attr': {'class': 'mt-4'}}) }}
+
+
+
+
+<input type="hidden" name="{{ f.published.vars.full_name }}" value="1" />
+
+    {# Display the Ref (ID) - assuming it's a non-editable field in the form #}
+    <div class="form-group">
+        <label>Ref</label>
+        <input type="text" class="form-control" disabled value="{{ f.vars.value.id }}" />
+    </div>
+    
+    <div class="form-group">
+        {{ form_label(f.title, 'Title') }}
+        {{ form_widget(f.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(f.publicationDate, 'Publication date') }}
+        {{ form_widget(f.publicationDate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(f.category, 'Category') }}
+        {{ form_widget(f.category, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(f.Author, 'Author') }}
+        {{ form_widget(f.Author, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group mt-4">
+        {{ form_widget(f.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    
+
+    {{ form_end(f) }}
+</div>
+{% endblock %}

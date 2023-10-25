@@ -1,0 +1,16 @@
+{# templates/author/ajouter_auteur.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un auteur{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un auteur</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <button type="submit">Ajouter l'auteur</button>
+
+    {{ form_end(form) }}
+{% endblock %}

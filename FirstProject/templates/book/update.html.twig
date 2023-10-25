@@ -1,0 +1,14 @@
+<div class="container mt-5" align='center'>
+    <h2 class="mb-5">add Book</h2>
+{{ form_start(f) }}
+ <div class="form-group">
+        <label>Ref</label>
+        <input type="text" class="form-control" disabled value="{{ f.vars.value.id }}" />
+    </div>
+   {{ form_widget(f) }}
+   
+   {{ form_end(f) }}
+
+<a href="{{ path('list_books') }}" class="btn btn-secondary">Back to list</a>
+</div>
+

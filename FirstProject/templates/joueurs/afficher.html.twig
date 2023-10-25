@@ -1,0 +1,26 @@
+<table border = 3>
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>role</th>
+    </tr>
+
+    {% for j in joueur %}
+
+    <tr>
+        <td>{{j.id}}</td>
+        <td>{{j.nom}}</td>
+        <td>{{j.role}}</td>
+     
+       {# <td> <a href={{path('edit', {'id': author.id})}}>modifier</a> </td>
+        <td> <a href={{path('efface', {'id': author.id})}}>supprimer</a> </td> #}
+
+    </tr>
+
+    {% endfor %}
+
+    </table>
+
+
+
+    <a href = {{path('suppplayer')}}> supprimer gardien </a>

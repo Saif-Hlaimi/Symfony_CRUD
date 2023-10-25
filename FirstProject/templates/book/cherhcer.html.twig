@@ -1,0 +1,18 @@
+{# templates/book/search.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Recherche de livres</h1>
+    
+    <form action="{{ path('book_search') }}" method="get">
+        <input type="text" name="query" value="{{ query }}" placeholder="Rechercher des livres">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
